@@ -60,6 +60,8 @@ QEMU = $(shell if which qemu > /dev/null; \
 	then echo qemu; exit; \
 	elif which qemu-system-i386 > /dev/null; \
 	then echo qemu-system-i386; exit; \
+	elif which qemu-system-x86_64 > /dev/null; \
+	then echo qemu-system-x86_64; exit; \
 	else \
 	qemu=/Applications/Q.app/Contents/MacOS/i386-softmmu.app/Contents/MacOS/i386-softmmu; \
 	if test -x $$qemu; then echo $$qemu; exit; fi; fi; \
@@ -273,6 +275,6 @@ tar:
 	rm -rf /tmp/xv6
 	mkdir -p /tmp/xv6
 	cp dist/* dist/.gdbinit.tmpl /tmp/xv6
-	(cd /tmp; tar cf - xv6) | gzip >xv6-rev9.tar.gz  # the next one will be 9 (6/27/15)
+	(cd /tmp; tar cf - xv6) | gzip >xv6-rev10.tar.gz  # the next one will be 10 (9/17)
 
 .PHONY: dist-test dist
